@@ -4,6 +4,7 @@ import { TrashIcon } from "@heroicons/vue/24/outline";
 </script>
 <template>
   <section
+    v-if="cartStore.totalCartItems > 0"
     class="bg-slate-100 min-h-screen flex flex-col justify-center items-center"
   >
     <div class="container my-10">
@@ -152,6 +153,11 @@ import { TrashIcon } from "@heroicons/vue/24/outline";
         </div>
       </div>
     </div>
+  </section>
+  <section v-else class="bg-slate-100 h-[600px] flex flex-col justify-center">
+    <h1 class="text-3xl font-[700] font-mon text-center pt-8">
+      Your cart is empty
+    </h1>
   </section>
 </template>
 
