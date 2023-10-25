@@ -1,5 +1,6 @@
 import { reactive } from "vue";
 import router from "../router";
+import { cartStore } from "./cartStore";
 const authStore = reactive({
   isAuthenticated: localStorage.getItem("auth") == 1,
   user: JSON.parse(localStorage.getItem("user")),
@@ -27,6 +28,9 @@ const authStore = reactive({
     authStore.user = {};
     localStorage.removeItem("auth", 0);
     localStorage.removeItem("user", "{}");
+    cartStore.items = {};
+    cartStore.totalPrice = 0;
+    cartStore.saveCartInLocalStorage();
     router.push("/login");
   },
 });

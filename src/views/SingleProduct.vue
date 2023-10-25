@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useRoute } from "vue-router";
 import { onBeforeMount, ref } from "vue";
+import { cartStore } from "../store/cartStore";
 const product = ref([]);
 const router = useRoute();
 onBeforeMount(() => {
@@ -79,6 +80,7 @@ onBeforeMount(() => {
           </div>
           <div class="space-x-4 space-y-5 mt-4">
             <button
+              @click="cartStore.addToCart(product)"
               class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
             >
               <svg
