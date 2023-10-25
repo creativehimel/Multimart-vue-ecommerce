@@ -23,7 +23,6 @@ function toggleProduct(orderId) {
     <div>
       <h1 class="text-3xl font-[700] font-mon text-center pt-8">Your orders</h1>
       <div class="bg-white p-8 rounded container">
-        <p>{{ orderStore.orders }}</p>
         <div v-for="order in orderStore.orders" :key="order.id">
           <div class="flex justify-between w-full space-y-2">
             <p class="w-1/3"><strong>Order ID:</strong> {{ order.id }}</p>
