@@ -55,8 +55,8 @@ const router = createRouter({
       component: Shop,
     },
     {
-      path: "/shop/:slug",
-      name: "single-product",
+      path: "/shop/:id",
+      name: "singleProduct",
       component: SingleProduct,
     },
     {
