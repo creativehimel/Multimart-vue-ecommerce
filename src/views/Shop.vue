@@ -2,7 +2,6 @@
 import { ref, onBeforeMount } from "vue";
 import axios from "axios";
 import { cartStore } from "../store/cartStore";
-
 const products = ref([]);
 onBeforeMount(() => {
   axios
@@ -23,7 +22,6 @@ onBeforeMount(() => {
       <h1 class="text-3xl font-[700] font-mon text-center pt-8">
         All Products
       </h1>
-
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-3 gap-y-5 my-8"
       >

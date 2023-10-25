@@ -2,6 +2,7 @@ import { reactive } from "vue";
 import router from "../router";
 import { cartStore } from "./cartStore";
 const authStore = reactive({
+  errorMsg: "",
   isAuthenticated: localStorage.getItem("auth") == 1,
   user: JSON.parse(localStorage.getItem("user")),
   authenticate(email, password) {
@@ -20,6 +21,24 @@ const authStore = reactive({
           localStorage.setItem("auth", 1);
           localStorage.setItem("user", JSON.stringify(res));
           router.push("/");
+        }
+      });
+  },
+  register(name, email, password) {
+    fetch("http://localhost:8000/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.error == 1) {
+          authStore.errorMsg = res.message;
+        } else {
+          authStore.errorMsg = "Registration successful";
+          router.push("/login");
         }
       });
   },

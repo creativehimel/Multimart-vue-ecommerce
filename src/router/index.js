@@ -14,6 +14,7 @@ import OrderSuccess from "../views/OrderSuccess.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import UserProfile from "../views/UserProfile.vue";
+import UserSetting from "../views/UserSetting.vue";
 import Orders from "../views/Orders.vue";
 import NotFound from "../views/NotFound.vue";
 
@@ -94,6 +95,11 @@ const router = createRouter({
       path: "/user-profile",
       name: "user-profile",
       component: UserProfile,
+    },
+    {
+      path: "/user-setting",
+      name: "user-setting",
+      component: UserSetting,
     },
     {
       path: "/orders",

@@ -95,34 +95,38 @@ import {
               >
                 <div v-if="authStore.isAuthenticated" class="px-1 py-1">
                   <MenuItem v-slot="{ active }">
-                    <button
-                      :class="[
-                        active ? 'bg-primary text-white' : 'text-gray-900',
-                        'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                      ]"
-                    >
-                      <PencilSquareIcon
-                        :active="active"
-                        class="mr-2 w-4 h-4 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      Profile
-                    </button>
+                    <RouterLink to="/user-profile">
+                      <button
+                        :class="[
+                          active ? 'bg-primary text-white' : 'text-gray-900',
+                          'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                        ]"
+                      >
+                        <PencilSquareIcon
+                          :active="active"
+                          class="mr-2 w-4 h-4 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        Profile
+                      </button>
+                    </RouterLink>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <button
-                      :class="[
-                        active ? 'bg-primary text-white' : 'text-gray-900',
-                        'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                      ]"
-                    >
-                      <Cog6ToothIcon
-                        :active="active"
-                        class="mr-2 w-4 h-4 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      Settings
-                    </button>
+                    <RouterLink to="/settings">
+                      <button
+                        :class="[
+                          active ? 'bg-primary text-white' : 'text-gray-900',
+                          'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                        ]"
+                      >
+                        <Cog6ToothIcon
+                          :active="active"
+                          class="mr-2 w-4 h-4 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        Settings
+                      </button>
+                    </RouterLink>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
                     <button
