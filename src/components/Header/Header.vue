@@ -1,5 +1,6 @@
 <script setup>
 import { authStore } from "../../store/authStore";
+import { cartStore } from "../../store/cartStore";
 import logo from "../../assets/images/eco-logo.png";
 import userIcon from "../../assets/images/user-icon.png";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
@@ -51,7 +52,7 @@ import {
             </svg>
           </RouterLink>
         </span>
-        <span>
+        <div class="relative">
           <RouterLink to="/cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +69,12 @@ import {
               />
             </svg>
           </RouterLink>
-        </span>
+          <p
+            class="absolute -top-0.5 -right-0.5 text-[10px] font-semibold bg-indigo-400 w-4 h-4 flex items-center justify-center text-white rounded-full"
+          >
+            {{ cartStore.totalCartItems }}
+          </p>
+        </div>
         <div class="pt-1">
           <Menu as="div" class="relative inline-block text-left">
             <div>

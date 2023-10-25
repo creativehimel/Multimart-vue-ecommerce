@@ -2,6 +2,13 @@ import { reactive, computed } from "vue";
 
 const cartStore = reactive({
   items: {},
+  totalCartItems: computed(() => {
+    let total = 0;
+    for (let item in cartStore.items) {
+      total += cartStore.items[item].quantity;
+    }
+    return total;
+  }),
   totalPrice: computed(() => {
     let total = 0;
     for (let id in cartStore.items) {
@@ -15,6 +22,16 @@ const cartStore = reactive({
     }
     return parseFloat(total.toFixed(2));
   }),
+  addQuantity(product) {
+    this.items[product.id].quantity++;
+    this.saveCartInLocalStorage();
+  },
+  subtractQuantity(product) {
+    if (this.items[product.id].quantity > 1) {
+      this.items[product.id].quantity--;
+    }
+    this.saveCartInLocalStorage();
+  },
   addToCart(product) {
     if (this.items[product.id]) {
       this.items[product.id].quantity++;
@@ -26,7 +43,10 @@ const cartStore = reactive({
     }
     this.saveCartInLocalStorage();
   },
-  removeFromCart(product) {},
+  removeFromCart(product) {
+    delete this.items[product.id];
+    this.saveCartInLocalStorage();
+  },
   clearCart() {},
   saveCartInLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(this.items));
