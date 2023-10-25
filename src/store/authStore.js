@@ -33,6 +33,9 @@ const authStore = reactive({
     cartStore.saveCartInLocalStorage();
     router.push("/login");
   },
+  getUserToken() {
+    return authStore.user.token;
+  },
 });
 
 export { authStore };

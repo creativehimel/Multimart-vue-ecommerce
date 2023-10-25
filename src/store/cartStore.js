@@ -1,4 +1,5 @@
 import { reactive, computed } from "vue";
+import { orderStore } from "./orderStore";
 
 const cartStore = reactive({
   items: {},
@@ -53,6 +54,9 @@ const cartStore = reactive({
   },
   loadCartFromLocalStorage() {
     this.items = JSON.parse(localStorage.getItem("cart") || "{}");
+  },
+  checkout() {
+    orderStore.placeOrder(this.totalPrice, this.items);
   },
 });
 cartStore.loadCartFromLocalStorage();

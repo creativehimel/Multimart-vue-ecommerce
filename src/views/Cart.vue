@@ -144,6 +144,7 @@ import { TrashIcon } from "@heroicons/vue/24/outline";
             </div>
           </div>
           <button
+            @click="cartStore.checkout()"
             class="bg-black text-white py-2 px-4 w-full rounded font-mon font-[800]"
           >
             Checkout
