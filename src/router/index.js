@@ -14,6 +14,7 @@ import OrderSuccess from "../views/OrderSuccess.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import UserProfile from "../views/UserProfile.vue";
+import Orders from "../views/Orders.vue";
 import NotFound from "../views/NotFound.vue";
 
 const router = createRouter({
@@ -93,6 +94,11 @@ const router = createRouter({
       path: "/user-profile",
       name: "user-profile",
       component: UserProfile,
+    },
+    {
+      path: "/orders",
+      name: "orders",
+      component: Orders,
     },
     {
       path: "/:pathMatch(.*)*",

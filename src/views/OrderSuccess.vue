@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { authStore } from "../store/authStore";
+import router from "../router";
+if (!authStore.isAuthenticated) {
+  router.push({ name: "login" });
+}
+</script>
 <template>
   <section
     class="bg-slate-100 h-[600px] flex flex-col justify-center items-center"

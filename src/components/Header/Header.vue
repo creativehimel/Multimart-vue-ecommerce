@@ -126,6 +126,7 @@ import {
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
                     <button
+                      @click="authStore.logout()"
                       :class="[
                         active ? 'bg-primary text-white' : 'text-gray-900',
                         'group flex w-full items-center rounded-md px-2 py-2 text-sm',
@@ -142,34 +143,38 @@ import {
                 </div>
                 <div v-if="!authStore.isAuthenticated" class="px-1 py-1">
                   <MenuItem v-slot="{ active }">
-                    <button
-                      :class="[
-                        active ? 'bg-primary text-white' : 'text-gray-900',
-                        'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                      ]"
-                    >
-                      <ArrowLeftOnRectangleIcon
-                        :active="active"
-                        class="mr-2 w-4 h-4 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      Sign in
-                    </button>
+                    <RouterLink to="/login">
+                      <button
+                        :class="[
+                          active ? 'bg-primary text-white' : 'text-gray-900',
+                          'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                        ]"
+                      >
+                        <ArrowLeftOnRectangleIcon
+                          :active="active"
+                          class="mr-2 w-4 h-4 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        Sign in
+                      </button>
+                    </RouterLink>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <button
-                      :class="[
-                        active ? 'bg-primary text-white' : 'text-gray-900',
-                        'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                      ]"
-                    >
-                      <UserPlusIcon
-                        :active="active"
-                        class="mr-2 w-4 h-4 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      Register
-                    </button>
+                    <RouterLink to="/register">
+                      <button
+                        :class="[
+                          active ? 'bg-primary text-white' : 'text-gray-900',
+                          'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                        ]"
+                      >
+                        <UserPlusIcon
+                          :active="active"
+                          class="mr-2 w-4 h-4 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        Register
+                      </button>
+                    </RouterLink>
                   </MenuItem>
                 </div>
               </MenuItems>
