@@ -1,6 +1,8 @@
 # vue-ecommerce
 
 This template should help get you started developing with Vue 3 in Vite.
+##Project API
+[Repo](https://github.com/LearnWithHasinHayder/ecom-backend)
 
 ## Recommended IDE Setup
 
